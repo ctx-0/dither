@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: monospace;
+    background: #fff;
+    color: #000;
+    line-height: 1.4;
+    padding: 20px;
+    min-width: 320px;
+}
+
+.upload-wrapper {
+    margin-bottom: 20px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.upload-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    text-decoration: underline;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.upload-btn:hover {
+    background: #000;
+    color: #fff;
+}
+
+canvas {
+    display: block;
+    margin: 10px 0;
+    max-width: 100%;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+.main-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.main-item {
+    flex: 1;
+    min-width: 150px;
+    max-width: 200px;
+}
+
+.main-item canvas {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid #000;
+}
+
+.main-item-label {
+    font-size: 11px;
+    text-align: center;
+    padding: 4px 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.cell {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.cell-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.cell canvas {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.algo-label {
+    font-size: 12px;
+    padding: 4px 0;
+}
+
+.palette-label {
+    font-size: 12px;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+}
