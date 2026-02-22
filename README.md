@@ -22,7 +22,6 @@
 - **GameBoy** (4 colors) - Original Game Boy green palette
 - **CGA** (4 colors) - CGA Mode 5 palette (black, cyan, magenta, gray)
 - **Amber** (2 colors) - Amber monochrome monitor
-- **CMYK** (4 colors) - Cyan, magenta, yellow, black
 - **Green Phosphor** (2 colors) - Classic phosphor green terminal/monitor
 
 *Note: Color Distance Squared Euclidean*
