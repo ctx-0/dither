@@ -10,9 +10,7 @@ const algorithms = {
     'Floyd-Steinberg': floydSteinberg,
     'Atkinson': atkinson,
     'Bayer 4x4': bayer4x4,
-    'Bayer 8x8': bayer8x8,
-    'Noise': noise,
-    'Threshold': threshold
+    'Bayer 8x8': bayer8x8
 };
 
 const palettes = {
@@ -320,53 +318,4 @@ function bayer8x8(imgData, palette) {
     return new ImageData(data, w, h);
 }
 
-function noise(imgData, palette) {
-    const data = new Uint8ClampedArray(imgData.data);
-    const w = imgData.width;
-    const h = imgData.height;
-    
-    for (let y = 0; y < h; y++) {
-        for (let x = 0; x < w; x++) {
-            const i = (y * w + x) * 4;
-            const noiseVal = (Math.random() - 0.5) * 128; // ±64 range
-            
-            // Apply noise to each channel, then find closest color
-            const r = Math.min(255, Math.max(0, data[i] + noiseVal));
-            const g = Math.min(255, Math.max(0, data[i+1] + noiseVal));
-            const b = Math.min(255, Math.max(0, data[i+2] + noiseVal));
-            
-            const [newR, newG, newB] = findClosestColor(r, g, b, palette);
-            
-            data[i] = newR;
-            data[i+1] = newG;
-            data[i+2] = newB;
-        }
-    }
-    
-    return new ImageData(data, w, h);
-}
-
-function threshold(imgData, palette) {
-    const data = new Uint8ClampedArray(imgData.data);
-    const w = imgData.width;
-    const h = imgData.height;
-    
-    for (let y = 0; y < h; y++) {
-        for (let x = 0; x < w; x++) {
-            const i = (y * w + x) * 4;
-            
-            // Direct color quantization without grayscale conversion
-            const r = data[i];
-            const g = data[i+1];
-            const b = data[i+2];
-            
-            const [newR, newG, newB] = findClosestColor(r, g, b, palette);
-            
-            data[i] = newR;
-            data[i+1] = newG;
-            data[i+2] = newB;
-        }
-    }
-    
-    return new ImageData(data, w, h);
-}
+// Removed: Noise, Threshold algorithms
