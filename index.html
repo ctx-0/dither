@@ -13,6 +13,8 @@
         <input type="file" id="upload" accept="image/*">
     </div>
     
+    <div id="loading" style="display:none; text-align:center; padding:2rem; color:#666;">loading...</div>
+    
     <div id="mainSection" style="display:none;">
         <div id="mainRow" class="main-row"></div>
     </div>
@@ -54,11 +56,15 @@
         const PRELOADED_IMAGE_URL = './boccher.jpg';
 
         function loadImage(src) {
+            document.getElementById('loading').style.display = 'block';
+            mainSection.style.display = 'none';
+            gridSection.style.display = 'none';
             const img = new Image();
             img.crossOrigin = 'anonymous';
             img.onload = () => {
                 originalImage = img;
                 processImage();
+                document.getElementById('loading').style.display = 'none';
             };
             img.src = src;
         }
